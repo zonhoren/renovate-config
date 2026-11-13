@@ -1,0 +1,9 @@
+{
+  "name": "renovate-config",
+  "private": true,
+  "description": "Shared Renovate preset for public repositories",
+  "license": "MIT",
+  "scripts": {
+    "validate": "npx --yes --package renovate@latest -- renovate-config-validator --strict --no-global default.json renovate.json"
+  }
+}

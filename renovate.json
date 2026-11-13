@@ -1,0 +1,6 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "This repository's own config. It does not extend default.json, so a broken preset cannot stop the PRs that keep this repository's workflow current.",
+  "extends": ["config:best-practices", ":timezone(America/Toronto)", "schedule:weekly"],
+  "labels": ["dependencies"]
+}

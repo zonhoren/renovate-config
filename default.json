@@ -41,6 +41,11 @@
       "description": "Label major updates so they can be found with label:dependency/major",
       "matchUpdateTypes": ["major"],
       "addLabels": ["dependency/major"]
+    },
+    {
+      "description": "Keep the 5-day release age for every version update. config:best-practices brings security:minimumReleaseAgeNpm, whose package rule sets npm to 3 days and would override the top-level minimumReleaseAge. Pins, lock file maintenance and replacements are left out: they carry no release timestamp, and Renovate's own rules set their age to null",
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "minimumReleaseAge": "5 days"
     }
   ]
 }

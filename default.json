@@ -23,7 +23,8 @@
       "customType": "regex",
       "managerFilePatterns": ["/(^|/)\\.github/workflows/[^/]+\\.ya?ml$/"],
       "matchStrings": [
-        "uses:\\s*bruits/sampo/crates/sampo-github-action@(?<currentValue>cargo-sampo-github-action-v[0-9.]+)"
+        "uses:\\s*bruits/sampo/crates/sampo-github-action@(?<currentDigest>[a-f0-9]{40})\\s*#\\s*(?<currentValue>[a-z-]+-v[0-9.]+)",
+        "uses:\\s*bruits/sampo/crates/sampo-github-action@(?<currentValue>[a-z-]+-v[0-9.]+)"
       ],
       "depNameTemplate": "bruits/sampo",
       "datasourceTemplate": "github-tags",

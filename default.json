@@ -17,6 +17,28 @@
     "enabled": true,
     "schedule": ["* * * * 1"]
   },
+  "customManagers": [
+    {
+      "description": "Sampo's GitHub Action, pinned by tag. The tag carries a prefix (cargo-sampo-github-action-v<version>), so Renovate's own github-actions manager cannot read its version",
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)\\.github/workflows/[^/]+\\.ya?ml$/"],
+      "matchStrings": [
+        "uses:\\s*bruits/sampo/crates/sampo-github-action@(?<currentValue>cargo-sampo-github-action-v[0-9.]+)"
+      ],
+      "depNameTemplate": "bruits/sampo",
+      "datasourceTemplate": "github-tags",
+      "extractVersionTemplate": "^cargo-sampo-github-action-v(?<version>.+)$",
+      "versioningTemplate": "semver"
+    },
+    {
+      "description": "The sampo CLI when a workflow installs it from crates.io at a fixed version",
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)\\.github/workflows/[^/]+\\.ya?ml$/"],
+      "matchStrings": ["sampo --version (?<currentValue>[0-9.]+)"],
+      "depNameTemplate": "sampo",
+      "datasourceTemplate": "crate"
+    }
+  ],
   "packageRules": [
     {
       "description": "Group every patch update into one PR",

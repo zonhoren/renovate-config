@@ -3,7 +3,7 @@
   "description": "Shared Renovate policy for public repositories. Version updates only: security fixes come from Dependabot security updates, so Renovate's own vulnerability PRs are off.",
   "extends": ["config:best-practices"],
   "timezone": "America/Toronto",
-  "schedule": ["before 6am on monday"],
+  "schedule": ["* * * * 1"],
   "labels": ["dependencies"],
   "prHourlyLimit": 2,
   "prConcurrentLimit": 10,
@@ -15,7 +15,7 @@
   "osvVulnerabilityAlerts": false,
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["before 6am on monday"]
+    "schedule": ["* * * * 1"]
   },
   "packageRules": [
     {

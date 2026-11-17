@@ -22,7 +22,7 @@ Add a rule to a repository's own `renovate.json` only when that rule is unique t
 | Setting | Effect |
 |---|---|
 | `config:best-practices` | Renovate's recommended base, plus pinned digests for GitHub Actions and container images |
-| Schedule | PRs are opened or updated before 6 am on Mondays, America/Toronto time |
+| Schedule | PRs are opened or updated on Mondays, America/Toronto time. The window is the whole day because the Mend app runs a repository on its own cadence (daily until a Renovate PR is merged, then every 4 hours), so a short window can pass without a run |
 | `minimumReleaseAge: 5 days` | A release is proposed only once it is five days old, so a compromised or yanked release is usually caught first |
 | Grouping | One PR for all patch updates, one for all minor updates, one for GitHub Actions; every major update gets its own PR, labelled `dependency/major` |
 | Lock file maintenance | A weekly PR refreshes lock files, so transitive dependencies stay current |

@@ -32,12 +32,13 @@
       "versioningTemplate": "semver"
     },
     {
-      "description": "The sampo CLI when a workflow installs it from crates.io at a fixed version",
+      "description": "The sampo CLI when a workflow installs it from crates.io at a fixed version. semver, not the crate datasource's default cargo versioning: that reads 0.23.0 as a range and rewrote it to 0.24.0 when the latest was 0.24.1",
       "customType": "regex",
       "managerFilePatterns": ["/(^|/)\\.github/workflows/[^/]+\\.ya?ml$/"],
       "matchStrings": ["sampo --version (?<currentValue>[0-9.]+)"],
       "depNameTemplate": "sampo",
-      "datasourceTemplate": "crate"
+      "datasourceTemplate": "crate",
+      "versioningTemplate": "semver"
     }
   ],
   "packageRules": [
